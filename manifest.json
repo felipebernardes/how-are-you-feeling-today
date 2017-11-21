@@ -1,0 +1,17 @@
+{
+  "name": "How Are You Feeling Today?",
+  "short_name": "HAYFT?",
+  "description": "this is a progressive web app for happiness tracking. It's a POC specially made for GURU Sorocaba online meetup.",
+  "lang": "en-US",
+  "start_url": "/about.html",
+  "scope": "/",
+  "display": "standalone",
+  "theme_color": "#2778A4",
+  "icons": [
+    {
+      "src": "img/icon/@192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}
