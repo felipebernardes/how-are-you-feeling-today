@@ -14,14 +14,46 @@
   const db = { deviceId: deviceId, days: feelings };
 
   localStorage.setItem("feelings", JSON.stringify(db));
-  const mock = {"deviceId":1,"days":[{"date":"2017-11-21","feeling":"happy"},{"date":"2017-11-22","feeling":"sad"}]};
+  const mock = {
+    "deviceId":1,
+    "days":[
+      {"date":"2017-11-01","feeling":"happy"},
+      {"date":"2017-11-02","feeling":"happy"},
+      {"date":"2017-11-03","feeling":"happy"},
+      {"date":"2017-11-04","feeling":"happy"},
+      {"date":"2017-11-05","feeling":"happy"},
+      {"date":"2017-11-06","feeling":"happy"},
+      {"date":"2017-11-07","feeling":"happy"},
+      {"date":"2017-11-08","feeling":"happy"},
+      {"date":"2017-11-09","feeling":"happy"},
+      {"date":"2017-11-10","feeling":"happy"},
+      {"date":"2017-11-11","feeling":"happy"},
+      {"date":"2017-11-12","feeling":"happy"},
+      {"date":"2017-11-13","feeling":"happy"},
+      {"date":"2017-11-14","feeling":"happy"},
+      {"date":"2017-11-15","feeling":"happy"},
+      {"date":"2017-11-16","feeling":"happy"},
+      {"date":"2017-11-17","feeling":"happy"},
+      {"date":"2017-11-18","feeling":"happy"},
+      {"date":"2017-11-19","feeling":"happy"},
+      {"date":"2017-11-20","feeling":"happy"},
+      {"date":"2017-11-21","feeling":"happy"},
+      {"date":"2017-11-22","feeling":"happy"},
+    ]};
 
   const calendar = document.querySelector('.calendar tbody');
 
+  const calendarEntriesMarkup = mock.days.map(day => {
+    let date = luxon.DateTime.fromISO(day.date);
+    return `<td class="${day.feeling}">${date.get('day')}</td>`
+  }).join("");
 
+  calendar.innerHTML = calendarEntriesMarkup;
+})();
+
+
+/*
   const daysOfCurrentMonth = getDaysInMonth(new Date().getMonth(), new Date().getFullYear());
-
-  let firstWeekDay = new Date(daysOfCurrentMonth[0]).getDay();
 
   daysOfCurrentMonth.forEach(day => {
     const dayOfWeek = day.getDay();
@@ -40,22 +72,13 @@
     const tds = calendar.querySelectorAll('td');
 
     tds[dayOfWeek].innerHTML = dayOfMonth;
-  });
-
-  const calendarEntriesMarkup = mock.days.map(day => {
-    let date = luxon.DateTime.fromISO(day.date);
-    return `<td class="${day.feeling}">${date.get('day')}</td>`
-  }).join("");
-
-  //calendar.innerHTML = calendarEntriesMarkup;
-
-  function getDaysInMonth(month, year) {
-       var date = new Date(year, month, 1);
-       var days = [];
-       while (date.getMonth() === month) {
-          days.push(new Date(date));
-          date.setDate(date.getDate() + 1);
-       }
-       return days;
-  }
-})();
+    function getDaysInMonth(month, year) {
+         var date = new Date(year, month, 1);
+         var days = [];
+         while (date.getMonth() === month) {
+            days.push(new Date(date));
+            date.setDate(date.getDate() + 1);
+         }
+         return days;
+    }
+  });*/
